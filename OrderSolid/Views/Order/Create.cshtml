@@ -1,0 +1,43 @@
+@model OrderSolid.Models.Order
+
+@{
+    ViewData["Title"] = "Create Order";
+}
+
+<h2>Create an Order</h2>
+
+<form asp-action="CreateOrder" method="post">
+    <div class="form-group">
+        <label for="ProductName">Product Name:</label>
+        <input type="text" id="ProductName" name="ProductName" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label for="Price">Price:</label>
+        <input type="number" id="Price" name="Price" class="form-control" step="0.01" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Place Order</button>
+</form>
+
+@if (ViewBag.Email != null)
+{
+    <div class="alert alert-primary mt-3">
+        <strong>Success!</strong> @ViewBag.Email
+    </div>
+}
+
+
+@if (ViewBag.Database != null)
+{
+    <div class="alert alert-secondary mt-3">
+        <strong>Success!</strong> @ViewBag.Database
+    </div>
+}
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success mt-3">
+        <strong>Success!</strong> @ViewBag.Message
+    </div>
+}
